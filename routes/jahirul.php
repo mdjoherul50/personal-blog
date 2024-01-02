@@ -12,7 +12,7 @@ return view('home.master');
 });
 
 Route::group(['middleware'=>'auth', 'prefix'=>'posts'],function(){
-    Route::get('/create',[PostController::class,'create'])->name('post.create')
+    Route::get('/create',[PostController::class,'create'])->name('post.create');
 
 });
 
