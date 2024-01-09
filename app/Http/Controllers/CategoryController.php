@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Category;
+use App\Models\Post;
 
 class CategoryController extends Controller
 {
@@ -64,5 +65,17 @@ class CategoryController extends Controller
         $category = Category::find($id);
         $category->delete();
         return redirect()->route('category.index')->with('success','Category Successfully Deleted');
+    }
+
+    public function menu(){
+        $categorys = Category::with('post')->get();
+        return view('dashboard', compact('categorys'));
+    }
+
+    public function categoryPost ($id){
+        $posts = Category::with('post')->find($id);
+       
+        return view('category.post', compact('posts'));
+
     }
 }

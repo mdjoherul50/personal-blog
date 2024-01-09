@@ -50,7 +50,7 @@
                         <p class="post-description">{{$post->description}}</p>
                         <div class="post-meta d-flex  justify-content-between">
                             <p class="author-category">
-                                <small class="text-muted">{{$post->author}} | {{$post->category_id}}</small>
+                                <small class="text-muted">{{$post->author}} | {{$post->category->name}}</small>
                             </p>
                             <p class="created-at">
                                 @if ($post->created_at->isToday())

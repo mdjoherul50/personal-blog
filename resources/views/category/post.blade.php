@@ -54,8 +54,8 @@
                 <!--box-1------------->
                 @foreach ($posts as $post)
                 <?php
-                $limitedDescription = Str::limit($post->description, 300);
-                $limitedTitle = Str::limit($post->title, 55);
+                $limitedDescription = Str::limit($post->post->description, 300);
+                $limitedTitle = Str::limit($post->post->title, 55);
 
                 ?>
                 <div class="blog-box">
@@ -66,13 +66,13 @@
                     </div>
                     <!--text--->
                     <div class="blog-text">
-                        <span> @if ($post->created_at->isToday())
+                        <span> @if ($post->post->created_at->isToday())
                             Today
-                        @elseif ($post->created_at->isYesterday())
+                        @elseif ($post->post->created_at->isYesterday())
                             Yesterday
                         @else
-                            {{$post->created_at->format('j F Y')}}
-                        @endif/ {{$post->category->name}}</span>
+                            {{$post->post->created_at->format('j F Y')}}
+                        @endif/ {{$post->name}}</span>
                         <a href="{{route('post.show',$post->id)}}" class="blog-title">{{$limitedTitle}}</a>
                         <p>{{$limitedDescription}}</p>
 

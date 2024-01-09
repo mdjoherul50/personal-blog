@@ -9,5 +9,14 @@
 
         </h2>
     </x-slot>
+       
+    
+    @foreach($categorys as $menu)
+    <div style="float: left; margin-right: 20px; font-size: 30px;">
+        <a href="{{route('category.post',$menu->id)}}">{{$menu->name}}</a>
+    </div>
+    @endforeach
+   
+
 
 </x-app-layout>
